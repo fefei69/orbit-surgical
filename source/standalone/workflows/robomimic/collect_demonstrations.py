@@ -85,12 +85,14 @@ def main():
     env = gym.make(args_cli.task, cfg=env_cfg)
 
     # create controller
-    if args_cli.teleop_device.lower() == "keyboard":
-        teleop_interface = Se3Keyboard(pos_sensitivity=0.04, rot_sensitivity=0.08)
-    elif args_cli.teleop_device.lower() == "spacemouse":
-        teleop_interface = Se3SpaceMouse(pos_sensitivity=0.05, rot_sensitivity=0.005)
-    else:
-        raise ValueError(f"Invalid device interface '{args_cli.teleop_device}'. Supported: 'keyboard', 'spacemouse'.")
+    # if args_cli.teleop_device.lower() == "keyboard":
+    #     teleop_interface = Se3Keyboard(pos_sensitivity=0.04, rot_sensitivity=0.08)
+    # elif args_cli.teleop_device.lower() == "spacemouse":
+    #     teleop_interface = Se3SpaceMouse(pos_sensitivity=0.05, rot_sensitivity=0.005)
+    # else:
+    #     raise ValueError(f"Invalid device interface '{args_cli.teleop_device}'. Supported: 'keyboard', 'spacemouse'.")
+    
+    teleop_interface = Se3Keyboard(pos_sensitivity=0.01, rot_sensitivity=0.08)
     # add teleoperation key for env reset
     teleop_interface.add_callback("L", env.reset)
     # print helper
@@ -136,11 +138,12 @@ def main():
             for key, value in obs_dict["policy"].items():
                 collector_interface.add(f"obs/{key}", value)
             # -- actions
-            collector_interface.add("actions", actions)
+            collector_interface.add("action", actions)
 
             # perform action on environment
             obs_dict, rewards, terminated, truncated, info = env.step(actions)
             dones = terminated | truncated
+            
             # check that simulation is stopped or not
             if env.unwrapped.sim.is_stopped():
                 break

@@ -11,7 +11,7 @@ import omni.isaac.lab.sim as sim_utils
 from omni.isaac.lab.assets import AssetBaseCfg
 from omni.isaac.lab.managers import EventTermCfg as EventTerm
 from omni.isaac.lab.managers import SceneEntityCfg
-from omni.isaac.lab.sensors import FrameTransformerCfg
+from omni.isaac.lab.sensors import CameraCfg, FrameTransformerCfg
 from omni.isaac.lab.utils import configclass
 
 import orbit.surgical.tasks.surgical.reach_dual.mdp as mdp
@@ -47,7 +47,7 @@ class PSMReachEnvCfg(ReachEnvCfg):
             ),
             init_state=AssetBaseCfg.InitialStateCfg(pos=(0.0, 0.0, -0.457)),
         )
-
+         
         # switch robot to PSM
         self.scene.robot_1 = PSM_CFG.replace(prim_path="{ENV_REGEX_NS}/Robot_1")
         self.scene.robot_1.init_state.pos = (0.2, 0.0, 0.15)

@@ -1,0 +1,2 @@
+# Replay BC policy
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/play.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --checkpoint logs/robomimic/Isaac-Lift-Needle-PSM-IK-Rel-v0/bc/20250207235244/models/model_epoch_200.pth --livestream 2

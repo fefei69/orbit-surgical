@@ -1,0 +1,2 @@
+# Replay RSL-RL policy
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/rsl_rl/play.py --task Isaac-Lift-Needle-PSM-IK-Rel-Play-v0 --num_envs 32 --load_run 2025-02-03_12-06-54 --checkpoint model_1100.pt --livestream 2

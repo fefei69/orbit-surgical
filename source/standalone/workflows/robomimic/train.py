@@ -156,7 +156,6 @@ def train(config, device):
     print("\n============= Model Summary =============")
     print(model)  # print model summary
     print("")
-
     # load training data
     trainset, validset = TrainUtils.load_data_for_training(config, obs_keys=shape_meta["all_obs_keys"])
     train_sampler = trainset.get_dataset_sampler()

@@ -10,7 +10,6 @@
 		"ms-iot.vscode-ros",
 		"ExecutableBookProject.myst-highlight",
 		"ms-python.black-formatter",
-		"ms-python.flake8",
 		"njpwerner.autodocstring"
 	]
 }

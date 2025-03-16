@@ -7,7 +7,7 @@
 import gymnasium as gym
 
 from . import agents, ik_abs_env_cfg, ik_rel_env_cfg, joint_pos_env_cfg
-
+import os
 ##
 # Register Gym environments.
 ##
@@ -46,6 +46,9 @@ gym.register(
     kwargs={
         "env_cfg_entry_point": ik_abs_env_cfg.NeedleLiftEnvCfg,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.LiftNeedlePPORunnerCfg,
+        "robomimic_bc_cfg_entry_point": os.path.join(agents.__path__[0], "robomimic/bc.json"),
+        "robomimic_bc_vae_cfg_entry_point": os.path.join(agents.__path__[0], "robomimic/bc.json"),
+        "robomimic_bc_transformer_cfg_entry_point": os.path.join(agents.__path__[0], "robomimic/bc.json"),
     },
     disable_env_checker=True,
 )
@@ -70,6 +73,7 @@ gym.register(
     kwargs={
         "env_cfg_entry_point": ik_rel_env_cfg.NeedleLiftEnvCfg,
         "rsl_rl_cfg_entry_point": agents.rsl_rl_cfg.LiftNeedlePPORunnerCfg,
+        "robomimic_bc_cfg_entry_point": os.path.join(agents.__path__[0], "robomimic/bc.json")
     },
     disable_env_checker=True,
 )

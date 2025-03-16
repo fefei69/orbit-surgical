@@ -1,0 +1,2 @@
+# ${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/test.py --task Isaac-Lift-Needle-PSM-IK-Rel-v0 --num_envs 1 --livestream 2
+${IsaacLab_PATH}/isaaclab.sh -p source/standalone/workflows/robomimic/lift_needle_sm.py --num_envs 1 --livestream 2
